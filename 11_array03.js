@@ -1,69 +1,51 @@
-// 1. forEach
-let arr = ["Mike", "Tome", "Jane"];
-arr.forEach((v, i) => console.log(`${v}, ${i + 1}`)); //Mike, 1, Tome, 2, Jane, 3
+// 1. sort 재정렬
+let arr = [1, 5, 4, 2, 3];
+arr.sort();
+console.log(arr); // [ 1, 2, 3, 4, 5 ]
 
-// 2. indexOf, lastIndexOf
-let arr2 = [1, 2, 3, 4, 5, 1, 2, 3];
-console.log(arr2.indexOf(3)); // 2
-console.log(arr2.indexOf(3, 3)); // 7
-console.log(arr2.lastIndexOf(3)); // 7
+// 문자
+let strArr = ["a", "c", "d", "e", "b"];
+strArr.sort();
+console.log(strArr); // [ 'a', 'b', 'c', 'd', 'e' ]
 
-// 3. include
-console.log(arr2.includes(3)); // true
-console.log(arr2.includes(6)); // false
+// 문자로 취급하므로 순서가 예상가 다름
+let arr2 = [27, 8, 5, 13];
+arr2.sort();
+console.log(arr2); // [ 13, 27, 5, 8 ]
 
-// 4. find(하나 찾으면 종료), findIndex는 find와 비슷하나 차이점은 반환값이 배열의 index번호
-const result = arr2.find((item) => item % 2 === 0);
-const result2 = arr2.find((item) => {
-  return item % 2 === 0;
+// 비교하는 메소드를 넘겨줌
+arr2.sort((v1, v2) => {
+  // 양수, 음수, 0을 리턴하면 됨
+  return v1 - v2;
 });
-// result, result2는 같음
-console.log(result);
-console.log(result2);
+console.log(arr2); // [ 5, 8, 13, 27 ]
 
-// find 객체타입인 경우
-let userList = [
-  { name: "Mike", age: 30 },
-  { name: "Jane", age: 27 },
-  { name: "Tom", age: 10 },
-];
-const result3 = userList.find((user) => user.age < 19);
-console.log(result3); // { name: 'Tom', age: 10 }
+// 2. 정렬은 Lodash라는 라이브러리를 많이 사용
+// https://lodash.com/
 
-// 5. filter는 find와 비슷하나 전부 찾아 반환
-const result4 = arr2.filter((item) => item % 2 === 0);
-console.log(result4); // 2, 4, 2
+// 3. reduce
+// 합계 구하기
+let arr3 = [1, 2, 3, 4, 5];
+let result = 0;
+arr3.forEach((v) => {
+  result += v;
+});
+console.log(result); // 15
 
-// 6. reverse 역순 정렬
+// reduce를 쓰면 한번에 계산 가능
+// (누적된 계산값, 현재값) => {return 계산값}
+const result2 = arr3.reduce((prev, cur) => {
+  return prev + cur;
+}, 0);
 
-// 7. map 새로운 배열 반환
-// 이 방식은 기존 userList배열에 수정을 가하는 구조임 - 비추
-const userList2 = userList.map((user) => {
-  if (user.age >= 19) {
-    user.isAdult = true;
-  } else {
-    user.isAdult = false;
+console.log(result2); // 15
+
+// reduce를 이용해서 성인만 취득 후 새배열로 리턴
+let result3 = userList.reduce((prev, cur) => {
+  if (cur.age > 19) {
+    prev.push(cur.name);
   }
-  return user;
-});
-console.log(userList2); // [ { name: 'Mike', age: 30, isAdult: true }, { name: 'Jane', age: 27, isAdult: true }, { name: 'Tom', age: 10, isAdult: false } ]
+  return prev;
+}, []);
 
-// 이 방식은 기존 userList의 복사본을 만들어서 새롭게 추가하는 방식이어서 기존 userList에는 영향이 없음(테스트를 위해서 userList롤백할 것)
-const userList3 = userList.map((user) => {
-  return Object.assign({}, user, {
-    isAdult: user.age >= 19,
-  });
-});
-console.log(userList3); // [ { name: 'Mike', age: 30, isAdult: true }, { name: 'Jane', age: 27, isAdult: true },, { name: 'Tom', age: 10, isAdult: false } ]
-
-// 8. join, split
-let arr3 = ["안녕", "나는", "철수야"];
-console.log(arr3.join()); //  안녕,나는,철수야 (기본 콤마)
-console.log(arr3.join("-")); // 안녕-나는-철수야
-
-// 9. split 문자를 배열로 만들어 줌
-
-// 10. Array.isArray() 배열인지 체크
-console.log(Array.isArray(arr3)); // true
-// typeof는 배열,객체 구분 못함
-console.log(typeof arr3); // object
+console.log(result3); // [ 'Mike', 'Jane', 'Sue', 'Harry', 'Steve' ]
