@@ -52,7 +52,7 @@ console.log(Object.keys(bmw)); // [ 'color', 'navigation' ]
     this.color = color;
   };
   Bmw.prototype.wheels = 4;
-  Bmw.prototype.driver = function () {
+  Bmw.prototype.drive = function () {
     console.log("drive..");
   };
 
@@ -60,5 +60,5 @@ console.log(Object.keys(bmw)); // [ 'color', 'navigation' ]
   const z4 = new Bmw("blue");
 
   console.log(x5); // { color: 'red' }
-  console.log(z4); // { color: 'red' }
+  console.log(z4.wheele); // { color: 'red' }
 }
