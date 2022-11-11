@@ -108,7 +108,7 @@ console.log(tom.showName()); // Tom
   }
 
   class Bmw extends Car {
-    constructor() {
+    constructor(color) {
       // 부모의 생성자 생성
       super();
       this.navigation = 1;
