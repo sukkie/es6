@@ -4,8 +4,15 @@
 async function getName() {
   return "Mike";
 }
+// Promise사용한 예(위 와 같음)
+let getName2 = () => {
+  return new Promise((res, rej) => {
+    res("Mike");
+  });
+};
 
 console.log(getName()); // Promise { 'Mike' }
+console.log(getName2()); // Promise { 'Mike' }
 // Promise를 반환하므로 then을 사용할 수 있음
 getName().then((name) => console.log(name)); // Mike
 

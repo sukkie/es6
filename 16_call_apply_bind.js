@@ -1,4 +1,4 @@
-// 1. call
+// 1. call : 객체와 매개변수를 파라미터로 넘겨서 호출
 {
   const mike = {
     name: "Mike",

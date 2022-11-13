@@ -3,11 +3,11 @@ const user = {
 };
 
 // property존재 체크
-console.log(user.hasOwnProperty("name"));
-console.log("name" in user);
+console.log(user.hasOwnProperty("name")); // true
+console.log("name" in user); // true
 
 // __proto__(이게 property)
-// 객체의 프로퍼티를 호출하면 현재 객체내의 프로퍼티를 조회하고 없으면 __proto__에서 찾음.
+// 객체의 프로퍼티를 호출하면 현재 객체내의 프로퍼티를 조회하고 없으면 __proto__(property)에서 찾음.
 
 // 상속 예제
 const car = {

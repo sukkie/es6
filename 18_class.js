@@ -42,7 +42,7 @@ console.log(tom.showName()); // Tom
     console.log(p); // name, age, showName
   }
 
-  // 클래스 프로퍼티 출력 (클래스틑 함수는 안나옴)
+  // 클래스 프로퍼티 출력 (클래스 프로퍼티는 함수 정보는 안나옴)
   for (const p in tom) {
     console.log(p); // name, age
   }

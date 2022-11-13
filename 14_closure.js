@@ -10,12 +10,12 @@ function makeAdder(x) {
 }
 
 const add3 = makeAdder(3);
-console.log(add3(2));
+console.log(add3(2)); // 5
 
 const add10 = makeAdder(10);
-console.log(add10(5));
+console.log(add10(5)); // 15
 // add10이 호출되도 add3은 makeAdder의 Lexical환경의 x변수의 값(3)을 기억하고 있음.
-console.log(add3(1));
+console.log(add3(1)); // 4
 
 // 예제2.
 function makeCounter(x) {
@@ -27,6 +27,6 @@ function makeCounter(x) {
 
 let counter = makeCounter();
 
-console.info(counter());
-console.info(counter());
-console.info(counter());
+console.info(counter()); // 0
+console.info(counter()); // 1
+console.info(counter()); // 2
