@@ -25,5 +25,5 @@ console.log(Object.values(user2)); // [ 'Mike', 30 ]
 // 객체 프로퍼티의 키,값을 배열로 반환
 const entUser = Object.entries(user2);
 console.log(entUser); // [ [ 'name', 'Mike' ], [ 'age', 30 ] ]
-// 키,값을 배열을 객체로 변환
+// 배열을 객체로 변환
 console.log(Object.fromEntries(entUser)); // { name: 'Mike', age: 30 }

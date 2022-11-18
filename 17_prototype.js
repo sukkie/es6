@@ -60,5 +60,6 @@ console.log(Object.keys(bmw)); // [ 'color', 'navigation' ]
   const z4 = new Bmw("blue");
 
   console.log(x5); // { color: 'red' }
-  console.log(z4.wheele); // { color: 'red' }
+  console.log(z4); // { color: 'blue' }
+  console.log(z4.wheels); // 4
 }

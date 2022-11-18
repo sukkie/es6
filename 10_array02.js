@@ -1,25 +1,37 @@
 // 1. forEach
 let arr = ["Mike", "Tome", "Jane"];
-arr.forEach((v, i) => console.log(`${v}, ${i + 1}`)); //Mike, 1, Tome, 2, Jane, 3
+arr.forEach((v, i) => console.log(`${v}, ${i + 1}`)); //Mike, 1/ Tome, 2/ Jane, 3
 
 // 2. indexOf, lastIndexOf
 let arr2 = [1, 2, 3, 4, 5, 1, 2, 3];
-console.log(arr2.indexOf(3)); // 2
-console.log(arr2.indexOf(3, 3)); // 7
-console.log(arr2.lastIndexOf(3)); // 7
+console.log(arr2.indexOf(3)); // 2번 위치에 존재
+console.log(arr2.indexOf(3, 3)); // 3번위치부터 3을 찾음, 결과 : 7번 위치에 존재
+console.log(arr2.lastIndexOf(3)); // 뒤에서부터 찾음, 결과 : 7번 위치에 존재
 
 // 3. include
 console.log(arr2.includes(3)); // true
 console.log(arr2.includes(6)); // false
 
-// 4. find(하나 찾으면 종료), findIndex는 find와 비슷하나 차이점은 반환값이 배열의 index번호
-const result = arr2.find((item) => item % 2 === 0);
-const result2 = arr2.find((item) => {
-  return item % 2 === 0;
-});
-// result, result2는 같음
-console.log(result);
-console.log(result2);
+// 4. find(하나 찾으면 종료)
+{
+  const result = arr2.find((item) => item % 2 === 0);
+  const result2 = arr2.find((item) => {
+    return item % 2 === 0;
+  });
+  // result, result2는 같음
+  console.log(result); // 2
+  console.log(result2); // 2
+}
+// findIndex는 find와 비슷하나 차이점은 반환값이 배열의 index번호
+{
+  const result = arr2.findIndex((item) => item % 2 === 0);
+  const result2 = arr2.findIndex((item) => {
+    return item % 2 === 0;
+  });
+  // result, result2는 같음
+  console.log(result); // 1
+  console.log(result2); // 1
+}
 
 // find 객체타입인 경우
 let userList = [

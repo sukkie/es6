@@ -19,7 +19,7 @@ pr.then(
 );
 
 // 위를 아래와 같이도 사용 할 수 있음
-pr.then(function (result) {}).catch(function (err) {});
+pr.then((result) => console.log(result)).catch((err) => console.log(error));
 
 // 예제1
 // callback hell
